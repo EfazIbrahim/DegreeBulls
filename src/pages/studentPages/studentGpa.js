@@ -3,7 +3,7 @@ import React from 'react';
 function Gpa() {
     return (
         <div>
-            <h2>About Page</h2>
+            <h2>Student GPA</h2>
         </div>
     );
 }

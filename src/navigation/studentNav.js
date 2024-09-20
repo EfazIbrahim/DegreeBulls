@@ -7,7 +7,7 @@ import Gpa from '../pages/studentPages/studentGpa';
 function StudentNav() {
     return (
         <div>
-            <nav>
+            <nav className="navbar">
                 <li>
                     <Link to="home">Home</Link>
                 </li>
