@@ -1,0 +1,30 @@
+.staff {
+}
+.staff-navbar {
+    display: flex;
+    width : 100%;
+    border-bottom: 2px solid #000;
+    position : fixed;
+    z-index: 1000;
+}
+
+.staff-logo {
+    width: 235px;
+    height: 70px;
+    margin: 10px;
+    padding-right: 30px;
+}
+
+.staff-links {
+    padding-right: 50px;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
+
+.staff-header {
+    margin-top: 120px;
+    margin-left: 750px;
+}

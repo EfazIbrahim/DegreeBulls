@@ -1,24 +1,38 @@
-import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import Gpa from '../pages/studentPages/studentGpa';
-import './staffNav.css';
+import React from "react";
+import { Route, Routes, Link } from "react-router-dom";
+import StudentSelection from "../pages/staffPages/studentSelection";
+
+import InstrutorSelection from "../pages/staffPages/instructorSelection";
+import StaffHome from "../pages/staffPages/staffHome";
 import logoWhite from '../assets/logo.png';
 
-function StudentNav() {
-    return (
-        <div className="student">
-            <nav className="student-navbar">
-                <img className="student-logo" src={logoWhite} alt="Degree Bulls Logo"/>
-                <Link to="/student">Home</Link>
-                <Link to="gpa">GPA</Link>
-            </nav>
-            <h1>Student Home</h1>
-            <Routes>
-                <Route path="gpa" element={<Gpa />} />
-                <Route path="/student" element={<StudentNav />} />
-            </Routes>
-        </div>
-    );
+import './staffNav.css';
+
+
+
+function StaffNav() {
+  return (
+    <div className="staff">
+        <nav className="staff-navbar">
+
+            <img className="staff-logo" src={logoWhite} alt="Degree Bulls Logo"/>
+
+            <Link className="staff-links" to="/staff">Home</Link>
+
+            <Link className="staff-links" to="instructors">Instructors</Link>
+
+            <Link className="staff-links" to="students">Students</Link>
+
+        </nav>
+        <Routes>
+            <Route path="/" element={<StaffHome/>}/>
+            <Route path="instructors" element={<InstrutorSelection />} />
+            <Route path="students" element={<StudentSelection />} />
+            <Route path="staff" element={<StaffNav />} />
+
+        </Routes>
+    </div>
+  );
 }
 
-export default StudentNav;
+export default StaffNav
