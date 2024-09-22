@@ -1,11 +1,10 @@
 import React from 'react';
 import './student.css';
-function Gpa() {
+function StudentHome() {
     return (
         <div className="student">
-            <h1 className="student-header">Student GPA</h1>
+            <h1 className="student-header">Student Home</h1>
         </div>
     );
 }
-
-export default Gpa;
+export default StudentHome;
