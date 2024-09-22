@@ -1,7 +1,8 @@
 .App {
   overflow: hidden !important;
-  background-image: url('./assets/backgroundBasic.png');
-  background-size: cover ;
+  /*background-image: url('./assets/backgroundWhite.jpg');*/
+  /*background-size: cover ;*/
+  background-color: whitesmoke;
   min-height: 100vh;
   display: flex;
 }

@@ -17,6 +17,7 @@ function Auth() {
             <button className="auth-button" onClick={() => handleNavigation('student')}>Student</button>
             <button className="auth-button" onClick={() => handleNavigation('advisor')}>Advisor</button>
             <button className="auth-button" onClick={() => handleNavigation('staff')}>Staff</button>
+            <button className="auth-button" onClick={() => handleNavigation('instructor')}>Instructor</button>
         </div>
     );
 }
