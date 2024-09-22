@@ -1,9 +1,9 @@
 import React from 'react';
-
+import './advisor.css';
 function StudentSelection() {
     return (
-        <div>
-            <h2>Student Selection</h2>
+        <div className="advisor">
+            <h1 className="advisor-header">Student Selection</h1>
         </div>
     );
 }
