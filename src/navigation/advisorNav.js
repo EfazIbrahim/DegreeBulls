@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Selection from '../pages/advisorPages/studentSelection';
-import './advisor.css';
+import './advisorNav.css';
 import logoWhite from '../assets/logo.png';
 
 function AdvisorNav() {

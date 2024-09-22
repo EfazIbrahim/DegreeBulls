@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Gpa from '../pages/studentPages/studentGpa';
-import './student.css';
+import './staffNav.css';
 import logoWhite from '../assets/logo.png';
 
 function StudentNav() {
