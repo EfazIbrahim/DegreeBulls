@@ -12,7 +12,7 @@ function StudentNav() {
         <div className="student">
             <nav className="student-navbar">
                 <img className="student-logo" src={logoWhite} alt="Degree Bulls Logo"/>
-                <Link className="student-links" to="/student">Course</Link>
+                <Link className="student-links" to="/student">Courses</Link>
                 <Link className="student-links" to="gpa">GPA</Link>
             </nav>
             <Routes>
