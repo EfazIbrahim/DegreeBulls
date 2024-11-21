@@ -1,11 +1,11 @@
 import React from 'react';
 import './advisor.css';
-function AdvisorHome() {
+function CourseSelection() {
     return (
         <div className="advisor">
-            <h1 className="advisor-header">Advisor Home</h1>
+            <h1 className="advisor-header">Courses</h1>
         </div>
     );
 }
 
-export default AdvisorHome;
+export default CourseSelection;
