@@ -6,6 +6,10 @@
     border-bottom: 2px solid #000;
     position : fixed;
     z-index: 1000;
+    background-image: url('../assets/headerBackground.jpg');
+    background-position: top; /* Center the image */
+    background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat;
 }
 
 .advisor-logo {

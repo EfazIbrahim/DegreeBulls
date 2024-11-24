@@ -1,10 +1,10 @@
 import React from 'react';
 import './student.css';
-function StudentHome() {
+function StudentCourses() {
     return (
         <div className="student">
-            <h1 className="student-header">Student Home</h1>
+            <h1 className="student-header">Student Courses</h1>
         </div>
     );
 }
-export default StudentHome;
+export default StudentCourses;
