@@ -15,7 +15,7 @@ function InstructorStudents() {
     }
     const assigngrade = async () => {
         try {
-            const courses = await AssignGrade(currentUser);
+            const courses = await AssignGrade(currentUser, "Ishraq Khan", "A");
             console.log(courses);
         } catch (error) {
             console.error('Error fetching courses:', error);
