@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../App.css';
+import './auth.css';
 import { auth, db } from '../firebase/firebase.js';
 import { doc, getDoc } from "firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import logo from '../assets/logo.png';
 
 function Auth() {
     const navigate = useNavigate();
@@ -54,11 +55,12 @@ function Auth() {
     };
 
     return (
-        <div className="auth-container">
-            <h2>Log In</h2>
-            <div className="input-container">
-                <label>Email:</label>
-                <input 
+        <div className="auth">
+            <img className="auth-logo" src={logo} alt="Degree Bulls Logo"/>
+            <div className="auth-option">
+                <label className="auth-label">Email:   </label>
+                <input
+                    className="auth-searchbar"
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
@@ -66,9 +68,10 @@ function Auth() {
                     required 
                 />
             </div>
-            <div className="input-container">
-                <label>Password:</label>
-                <input 
+            <div className="auth-option">
+                <label className="auth-label">Password:   </label>
+                <input
+                    className="auth-searchbar"
                     type="password" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
@@ -76,9 +79,9 @@ function Auth() {
                     required 
                 />
             </div>
-            <div className="role-container">
-                <label>Role:</label>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
+            <div className="auth-option">
+                <label className="auth-label">Role:   </label>
+                <select className="auth-select" value={role} onChange={(e) => setRole(e.target.value)}>
                     <option value="student">Student</option>
                     <option value="advisor">Advisor</option>
                     <option value="staff">Staff</option>
