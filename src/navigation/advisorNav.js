@@ -7,11 +7,11 @@ import logo from '../assets/logo.png';
 
 function AdvisorNav() {
     return (
-        <div className="advisor">
-            <nav className="advisor-navbar">
-                <img className="advisor-logo" src={logo} alt="Degree Bulls Logo"/>
-                <Link className="advisor-links" to="/advisor">Instructor List</Link>
-                <Link className="advisor-links" to="student-selection">Student Selection</Link>
+        <div className="advisorNav">
+            <nav className="advisorNav-navbar">
+                <img className="advisorNav-logo" src={logo} alt="Degree Bulls Logo"/>
+                <Link className="advisorNav-links" to="/advisor">Instructor List</Link>
+                <Link className="advisorNav-links" to="student-selection">Student Selection</Link>
             </nav>
             <Routes>
                 <Route path="student-selection" element={<Selection />} />

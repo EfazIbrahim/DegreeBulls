@@ -1,0 +1,23 @@
+[
+  {
+    "semester": "Fall 2024",
+    "courses": [
+      { "course": "CIS 4600", "grade": "A-" },
+      { "course": "CDA 4560", "grade": "B" }
+    ]
+  },
+  {
+    "semester": "Spring 2024",
+    "courses": [
+      { "course": "CIS 4250", "grade": "A-" },
+      { "course": "CDA 3103", "grade": "B" }
+    ]
+  },
+  {
+    "semester": "Fall 2023",
+    "courses": [
+      { "course": "CEN 4020", "grade": "A" },
+      { "course": "COP 4530", "grade": "B+" }
+    ]
+  }
+]

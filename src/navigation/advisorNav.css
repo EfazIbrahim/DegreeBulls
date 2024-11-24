@@ -1,6 +1,8 @@
-.advisor {
+.advisorNav {
+    display: flex;
+    width: 100%;
 }
-.advisor-navbar {
+.advisorNav-navbar {
     display: flex;
     width : 100%;
     border-bottom: 2px solid #000;
@@ -12,14 +14,14 @@
     background-repeat: no-repeat;
 }
 
-.advisor-logo {
+.advisorNav-logo {
     width: 235px;
     height: 70px;
     margin: 10px;
     padding-right: 30px;
 }
 
-.advisor-links {
+.advisorNav-links {
     padding-right: 50px;
     margin-top: 50px;
     font-size: 20px;

@@ -1,24 +1,18 @@
 import React from 'react';
 import './student.css';
-// import { getCourses } from './studentFunctions';
+import { getCourse1 } from './studentFunctions';
 function StudentCourses() {
-    const handleButtonClick = async () => {
-        try {
-            const courses = await getCourses();
-            console.log(courses);
-        } catch (error) {
-            console.error('Error fetching courses:', error);
-        }
-    };
+    const course1 = getCourse1();
     return (
         <div className="student">
-            {/*<button className="student-button" onClick={handleButtonClick}>Log Course</button>*/}
             <h1 className="student-header">Student Courses</h1>
             <div className="student-semester">
                 <h2 className="student-label">Fall 2024</h2>
             </div>
+            <button className="student-button" onClick={() => console.log(course1)}>Log Course</button>
 
         </div>
     );
 }
+
 export default StudentCourses;
