@@ -42,6 +42,7 @@ function StudentSelection() {
         const fetchCourses = async () => {
             try {
                 let allCourses = await getCourses(id);
+                console.log(allCourses);
                 if (allCourses[0] === "Department") {
                     allCourses[0] = "CDA 3513";
                 }

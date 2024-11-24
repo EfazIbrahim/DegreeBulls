@@ -56,7 +56,6 @@ function StudentCourses() {
         try {
             const courses = await GetCourses(currentUser);
             setCourses(courses);
-            console.log(courses);
         } catch (error) {
             console.error('Error fetching courses:', error);
         }
