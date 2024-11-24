@@ -72,7 +72,7 @@ async function addCourse(id, course) {
     else if (!(await getCourses(id)).includes(course)) {
         throw new Error('Course is not available to student');
     }
-    const grades = ['A', 'A-', 'B+', 'B', 'C'];
+    const grades = ['A', 'B', 'C', 'D'];
     const randomGrade = grades[Math.floor(Math.random() * grades.length)];{
         //update student's course list
         const userDocRef = doc(db, 'Student', id);
