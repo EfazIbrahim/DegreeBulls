@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
-import { firestore } from '../../firebase';
+import { AuthContext } from '../../context/AuthContext.js';
+import db from '../../firebase/firebase.js';
 
 /**
  * Retrieves the courses for the authenticated user, organized by semester.
@@ -45,8 +45,8 @@ async function getCourses() {
     const userId = currentUser.uid;
     const courses = [];
 
-    const userDocRef = firestore.collection('Student').doc(userId);
-    const courseCollectionRef = userDocRef.collection('course');
+    const userDocRef = db.collection('Student').doc(userId);
+    const courseCollectionRef = userDocRef.collection('Course');
     const semestersSnapshot = await courseCollectionRef.get();
 
     const coursesBySemester = new Map();
@@ -67,6 +67,10 @@ async function getCourses() {
     });
 
     return courses;
+}
+
+async function calculateGPA() {
+
 }
 
 export { getCourses };
