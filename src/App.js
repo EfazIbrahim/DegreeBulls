@@ -5,20 +5,24 @@ import AdvisorNav from './navigation/advisorNav';
 import StaffNav from './navigation/staffNav';
 import InstructorNav from './navigation/instructorNav';
 import './App.css';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
+    
     return (
-        <Router>
-            <div className="App">
-                <Routes>
-                    <Route path="/" element={<Auth />} />
-                    <Route path="/student/*" element={<StudentNav />} />
-                    <Route path ="/advisor/*" element={<AdvisorNav />} />
-                    <Route path ="/staff/*" element={<StaffNav />} />
-                    <Route path ="/instructor/*" element={<InstructorNav />} />
-                </Routes>
-            </div>
-        </Router>
+        <AuthProvider>
+            <Router>
+                <div className="App">
+                    <Routes>
+                        <Route path="/" element={<Auth />} />
+                        <Route path="/student/*" element={<StudentNav />} />
+                        <Route path ="/advisor/*" element={<AdvisorNav />} />
+                        <Route path ="/staff/*" element={<StaffNav />} />
+                        <Route path ="/instructor/*" element={<InstructorNav />} />
+                    </Routes>
+                </div>
+            </Router>
+        </AuthProvider>
     );
 }
 // salam

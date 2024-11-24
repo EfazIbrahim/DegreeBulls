@@ -1,7 +1,5 @@
-import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
-import { firestore } from '../../firebase';
-
+import { db } from '../../firebase/firebase.js';
+import { collection, doc, getDocs } from 'firebase/firestore';
 /**
  * Retrieves the courses for the authenticated user, organized by semester.
  * 
@@ -36,8 +34,7 @@ import { firestore } from '../../firebase';
  * const fall2023Courses = courses.find(sem => sem.semester === 'Fall 2023').courses;
  * console.log(fall2023Courses); // Outputs: [{ course: 'CEN 4020', grade: 'A' }, { course: 'COP 4530', grade: 'B+' }]
  */
-async function getCourses() {
-    const { currentUser } = useContext(AuthContext);
+async function GetCourses(currentUser) {
     if (!currentUser) {
         throw new Error('User not authenticated');
     }
@@ -45,9 +42,9 @@ async function getCourses() {
     const userId = currentUser.uid;
     const courses = [];
 
-    const userDocRef = firestore.collection('Student').doc(userId);
-    const courseCollectionRef = userDocRef.collection('course');
-    const semestersSnapshot = await courseCollectionRef.get();
+    const userDocRef = doc(db, 'Student', userId);
+    const courseCollectionRef = collection(userDocRef, 'Course');
+    const semestersSnapshot = await getDocs(courseCollectionRef);
 
     const coursesBySemester = new Map();
 
@@ -69,5 +66,5 @@ async function getCourses() {
     return courses;
 }
 
-export { getCourses };
+export { GetCourses };
 
