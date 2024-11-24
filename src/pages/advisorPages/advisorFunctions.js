@@ -40,8 +40,11 @@ async function getCourses(id){
     const courseList = [];
     const courseData = courseDoc.data();
     Object.keys(courseData).forEach((field) => {
-        courseList.push(field);
+        if (field !== 'Department') {
+            courseList.push(field);
+        }
     });
+    console.log(courseList);
     return courseList;
 }
 
