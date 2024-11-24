@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Gpa from '../pages/studentPages/studentGpa';
@@ -9,11 +8,11 @@ import logoWhite from '../assets/logo.png';
 
 function StudentNav() {
     return (
-        <div className="student">
-            <nav className="student-navbar">
-                <img className="student-logo" src={logoWhite} alt="Degree Bulls Logo"/>
-                <Link className="student-links" to="/student">Courses</Link>
-                <Link className="student-links" to="gpa">GPA</Link>
+        <div className="studentNav">
+            <nav className="studentNav-navbar">
+                <img className="studentNav-logo" src={logoWhite} alt="Degree Bulls Logo"/>
+                <Link className="studentNav-links" to="/student">Courses</Link>
+                <Link className="studentNav-links" to="gpa">GPA</Link>
             </nav>
             <Routes>
                 <Route path="gpa" element={<Gpa />} />
