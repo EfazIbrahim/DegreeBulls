@@ -92,3 +92,27 @@
 .suggestions-list li:hover {
     background-color: #f0f0f0;
 }
+
+.course-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.course-table th, .course-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.course-table th {
+    background-color: #f0f0f0;
+}
+
+.course-table th:first-child, .course-table td:first-child {
+    width: 80%;
+}
+
+.course-table th:nth-child(2), .course-table td:nth-child(2) {
+    width: 20%;
+}

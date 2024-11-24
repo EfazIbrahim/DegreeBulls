@@ -8,11 +8,11 @@ import logoWhite from '../assets/logo.png';
 
 function InstructorNav() {
     return (
-        <div className="instructor">
-            <nav className="instructor-navbar">
-                <img className="instructor-logo" src={logoWhite} alt="Degree Bulls Logo"/>
-                <Link className="instructor-links" to="/instructor">Students</Link>
-                <Link className="instructor-links" to="courses">Courses</Link>
+        <div className="instructorNav">
+            <nav className="instructorNav-navbar">
+                <img className="instructorNav-logo" src={logoWhite} alt="Degree Bulls Logo"/>
+                <Link className="instructorNav-links" to="/instructor">Students</Link>
+                <Link className="instructorNav-links" to="courses">Courses</Link>
             </nav>
             <Routes>
                 <Route path="/instructor" element={<instructorNav />} />
