@@ -27,3 +27,64 @@
 .student-button {
     padding : 10px;
 }
+
+
+
+.gpa-text {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.what-if-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 40%;
+}
+
+.search-bar {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.add-course-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.suggestions-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px auto 0; /* Adjust margin to position below the search container */
+    width: 40%; /* Match the width of the search container */
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+
+.suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.suggestions-list li:hover {
+    background-color: #f0f0f0;
+}
