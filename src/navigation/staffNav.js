@@ -12,16 +12,16 @@ import './staffNav.css';
 
 function StaffNav() {
   return (
-    <div className="staff">
-        <nav className="staff-navbar">
+    <div className="staffNav">
+        <nav className="staffNav-navbar">
 
-            <img className="staff-logo" src={logoWhite} alt="Degree Bulls Logo"/>
+            <img className="staffNav-logo" src={logoWhite} alt="Degree Bulls Logo"/>
 
-            <Link className="staff-links" to="/staff">Home</Link>
+            <Link className="staffNav-links" to="/staff">Home</Link>
 
-            <Link className="staff-links" to="instructors">Instructors</Link>
+            <Link className="staffNav-links" to="instructors">Instructors</Link>
 
-            <Link className="staff-links" to="students">Students</Link>
+            <Link className="staffNav-links" to="students">Students</Link>
 
         </nav>
         <Routes>
