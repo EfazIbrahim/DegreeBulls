@@ -72,12 +72,13 @@ async function addCourse(id, course) {
     else if (!(await getCourses(id)).includes(course)) {
         throw new Error('Course is not available to student');
     }
-    else {
+    const grades = ['A', 'A-', 'B+', 'B', 'C'];
+    const randomGrade = grades[Math.floor(Math.random() * grades.length)];{
         //update student's course list
         const userDocRef = doc(db, 'Student', id);
         const studentcourseDocRef = doc(userDocRef, 'Course', 'Fall 2024');
         await updateDoc(studentcourseDocRef, {
-            [course]: ""
+            [course]: randomGrade
         });
 
         //update course's student list
@@ -106,7 +107,7 @@ async function addCourse(id, course) {
             students: {
                 ...instructorCourseData.students,
                 [id]: {
-                    grade: "",
+                    grade: randomGrade,
                     semester: 'Fall 2024',
                     name: userDocSnap.data().Name
                 }
