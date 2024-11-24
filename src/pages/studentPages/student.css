@@ -6,29 +6,33 @@
 }
 
 .student-header {
-    padding-top: 70px;
+    padding-top: 90px;
     font-size: 50px;
     width: 100%;
-    text-align: center; /* Center text within the header */
+    text-align: center;
 
 }
 
 .student-semester {
     width: 100%;
-    padding-left: px;
+    text-align: center;
 }
 
 .student-label {
-    font-size: 20px;
-    padding-left: 20px;
+    font-size: 40px;
     width: 100%;
+    text-decoration: underline;
 }
 
 .student-button {
     padding : 10px;
 }
 
-
+.student-courses {
+    width: 100%;
+    font-size: 30px;
+    font-weight: normal;
+}
 
 .gpa-text {
     font-family: 'Arial', sans-serif;
