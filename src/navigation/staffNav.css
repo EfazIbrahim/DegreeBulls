@@ -1,21 +1,27 @@
-.staff {
+.staffNav {
+    display: flex;
+    width: 100%;
 }
-.staff-navbar {
+.staffNav-navbar {
     display: flex;
     width : 100%;
     border-bottom: 2px solid #000;
     position : fixed;
     z-index: 1000;
+    background-image: url('../assets/headerBackground.jpg');
+    background-position: top;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
-.staff-logo {
+.staffNav-logo {
     width: 235px;
     height: 70px;
     margin: 10px;
     padding-right: 30px;
 }
 
-.staff-links {
+.staffNav-links {
     padding-right: 50px;
     margin-top: 50px;
     font-size: 20px;
@@ -24,7 +30,7 @@
     text-decoration: none;
 }
 
-.staff-header {
+.staffNav-header {
     margin-top: 120px;
     margin-left: 750px;
 }
