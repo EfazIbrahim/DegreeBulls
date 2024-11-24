@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e1fa574-b99d-4e3d-9724-573fc04a442c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/staffPages/instructorSelection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staffPages/staff.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staffPages/staffHome.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staffPages/studentSelection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/staffNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/staffNav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/staffNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/staffNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/instructorNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/instructorNav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/instructorNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/instructorNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/studentNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/studentNav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/instructorPages/instructor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/instructorPages/instructor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/instructorPages/instructorStudents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/instructorPages/instructorStudents.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,22 +36,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "farhan-testing",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/usf classes/CEN 4020 Software Engineering/Project/DegreeBulls",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;farhan-testing&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/usf classes/CEN 4020 Software Engineering/Project/DegreeBulls&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="degreebulls" />
@@ -94,6 +93,7 @@
       <workItem from="1726878155831" duration="305000" />
       <workItem from="1726878474370" duration="5478000" />
       <workItem from="1727041541715" duration="5982000" />
+      <workItem from="1732473862901" duration="6136000" />
     </task>
     <servers />
   </component>
