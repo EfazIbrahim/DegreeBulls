@@ -1,10 +1,27 @@
 .student {
-
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .student-header {
-    margin-top: 120px;
-    margin-left: 750px;
+    padding-top: 70px;
+    font-size: 50px;
+    width: 100%;
+    text-align: center; /* Center text within the header */
+
+}
+
+.student-semester {
+    width: 100%;
+    padding-left: px;
+}
+
+.student-label {
+    font-size: 20px;
+    padding-left: 20px;
+    width: 100%;
 }
 
 .student-button {
