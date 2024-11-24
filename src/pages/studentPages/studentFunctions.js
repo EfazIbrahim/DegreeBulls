@@ -35,10 +35,6 @@ import { collection, doc, getDocs } from 'firebase/firestore';
  * console.log(fall2023Courses); // Outputs: [{ course: 'CEN 4020', grade: 'A' }, { course: 'COP 4530', grade: 'B+' }]
  */
 async function GetCourses(currentUser) {
-    if (!currentUser) {
-        throw new Error('User not authenticated');
-    }
-
     const userId = currentUser.uid;
     const courses = [];
 
