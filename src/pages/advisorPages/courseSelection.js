@@ -42,8 +42,10 @@ function StudentSelection() {
         const fetchCourses = async () => {
             try {
                 let allCourses = await getCourses(id);
-                if (allCourses[0] === "Department") {
-                    allCourses[0] = "CDA 3513";
+                for (let i = 0; i < allCourses.length; i++) {
+                    if (allCourses[i] === "Department") {
+                        allCourses[i] = "CDA 3513";
+                    }
                 }
                 setCourses(allCourses);
             } catch (error) {
