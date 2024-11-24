@@ -1,8 +1,8 @@
-.staffNav {
+.adminNav {
     display: flex;
     width: 100%;
 }
-.staffNav-navbar {
+.adminNav-navbar {
     display: flex;
     width : 100%;
     border-bottom: 2px solid #000;
@@ -14,14 +14,14 @@
     background-repeat: no-repeat;
 }
 
-.staffNav-logo {
+.adminNav-logo {
     width: 235px;
     height: 70px;
     margin: 10px;
     padding-right: 30px;
 }
 
-.staffNav-links {
+.adminNav-links {
     padding-right: 50px;
     margin-top: 50px;
     font-size: 20px;
@@ -30,7 +30,7 @@
     text-decoration: none;
 }
 
-.staffNav-header {
+.adminNav-header {
     margin-top: 120px;
     margin-left: 750px;
 }
