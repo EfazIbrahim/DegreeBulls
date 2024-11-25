@@ -42,9 +42,7 @@ function StudentSelection() {
         const fetchCourses = async () => {
             try {
                 let allCourses = await getCourses(id);
-                if (allCourses[0] === "Department") {
-                    allCourses[0] = "CDA 3513";
-                }
+                console.log(allCourses);
                 setCourses(allCourses);
             } catch (error) {
                 console.error('Error fetching courses:', error);

@@ -40,8 +40,11 @@ async function getCourses(id){
     const courseList = [];
     const courseData = courseDoc.data();
     Object.keys(courseData).forEach((field) => {
-        courseList.push(field);
+        if (field !== 'Department') {
+            courseList.push(field);
+        }
     });
+    console.log(courseList);
     return courseList;
 }
 
@@ -161,5 +164,68 @@ async function removeCourse(id, course) {
     //return updated course list
     return getStudentCourses(id);
 }
+
+async function GetCourses(id) {
+    const userId = id;
+    const courses = [];
+
+    const userDocRef = doc(db, 'Student', userId);
+    const courseCollectionRef = collection(userDocRef, 'Course');
+    const semestersSnapshot = await getDocs(courseCollectionRef);
+
+    const coursesBySemester = new Map();
+
+    semestersSnapshot.forEach(semesterDoc => {
+        const semesterData = semesterDoc.data();
+        const semesterCourses = [];
+
+        for (const [course, grade] of Object.entries(semesterData)) {
+            semesterCourses.push({ course, grade });
+        }
+
+        coursesBySemester.set(semesterDoc.id, semesterCourses);
+    });
+
+    coursesBySemester.forEach((coursesArray, semester) => {
+        courses.push({ semester, courses: coursesArray });
+    });
+
+    return courses;
+}
+
+async function calculateGPA(id) {
+    const courses = await GetCourses(id);
+    let totalPoints = 0;
+    let totalCredits = 0;
+
+    const gradeToPoints = {
+        'A': 4.0,
+        'A-': 3.7,
+        'B+': 3.3,
+        'B': 3.0,
+        'B-': 2.7,
+        'C+': 2.3,
+        'C': 2.0,
+        'C-': 1.7,
+        'D+': 1.3,
+        'D': 1.0,
+        'F': 0.0
+    };
+
+    courses.forEach(semester => {
+        semester.courses.forEach(course => {
+            const grade = course.grade;
+            const points = gradeToPoints[grade];
+            const credits = 3; // Assuming each course is 3 credits, adjust as necessary
+
+            totalPoints += points * credits;
+            totalCredits += credits;
+        });
+    });
+
+    const gpa = totalPoints / totalCredits;
+    return gpa;
+}
+export { GetCourses, calculateGPA };
 
 export { selectStudent, getCourses, getStudentCourses, addCourse, removeCourse };
