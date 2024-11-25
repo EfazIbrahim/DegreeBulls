@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e1fa574-b99d-4e3d-9724-573fc04a442c" name="Changes" comment="bal sal">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staffPages/instructorSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staffPages/instructorSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staffPages/staff.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staffPages/staff.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staffPages/staffHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staffPages/staffHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staffPages/studentSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staffPages/studentSelection.js" afterDir="false" />
-    </list>
+    <list default="true" id="2e1fa574-b99d-4e3d-9724-573fc04a442c" name="Changes" comment="bal sal" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +78,7 @@
       <workItem from="1726878474370" duration="5478000" />
       <workItem from="1727041541715" duration="5982000" />
       <workItem from="1732473862901" duration="14533000" />
-      <workItem from="1732511743672" duration="2420000" />
+      <workItem from="1732511743672" duration="3199000" />
     </task>
     <task id="LOCAL-00001" summary="bal sal">
       <option name="closed" value="true" />
