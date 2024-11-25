@@ -14,7 +14,7 @@ function Logs() {
         <div className="admin">
             <h1 className="admin-header">Logs</h1>
             <div>
-                {actions.map((action, index) => (
+                {actions.slice().reverse().map((action, index) => (
                     <h2 className="admin-log" key={index}>• {action}</h2>
                 ))}
             </div>
