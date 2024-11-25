@@ -66,3 +66,47 @@ button {
 button:hover {
     background-color: #f0f0f0;
 }
+
+/* advisor.css */
+.what-if-heading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.what-if-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.what-if-search {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 40%;
+    margin-right: 10px;
+}
+
+/* advisor.css */
+.what-if-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.what-if-table th, .what-if-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+/* advisor.css */
+.what-if-table select {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
