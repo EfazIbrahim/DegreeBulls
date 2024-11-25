@@ -86,13 +86,17 @@
 
 
 import './instructor.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GetInstructorStudents } from './instructorFunctions.js';
 import { useAuth } from '../../context/AuthContext.js';
+import { useDispatch } from 'react-redux';
+import { addString } from '../../redux/store';
 
 function InstructorStudents() {
     const { currentUser } = useAuth();
+    const dispatch = useDispatch();
     const [studentsData, setStudentsData] = useState(new Map());
+    const hasMounted = useRef(false);
 
     useEffect(() => {
         const fetchStudents = async () => {
@@ -104,8 +108,12 @@ function InstructorStudents() {
             }
         };
 
-        fetchStudents();
-    }, [currentUser]);
+        if (!hasMounted.current && currentUser) {
+            dispatch(addString(currentUser.uid + " viewed student list")); // Add log to Redux store
+            fetchStudents();
+            hasMounted.current = true;
+        }
+    }, [currentUser, dispatch]);
 
     return (
         <div className="instructor">

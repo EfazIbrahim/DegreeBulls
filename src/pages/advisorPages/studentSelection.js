@@ -353,9 +353,12 @@ import React, { useState } from 'react';
 import './advisor.css';
 import { getStudentCourses, getCourses, addCourse, removeCourse, calculateGPA, GetCourses } from './advisorFunctions.js';
 import { useAuth } from '../../context/AuthContext.js';
+import { useDispatch } from 'react-redux';
+import { addString } from '../../redux/store';
 
 function StudentSelection() {
     const { currentUser } = useAuth();
+    const dispatch = useDispatch();
     const [searchInput, setSearchInput] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedCourses, setSelectedCourses] = useState([]);
@@ -434,6 +437,7 @@ function StudentSelection() {
         try {
             const updatedCourses = await addCourse(hardcodedStudentId, course);
             setSelectedCourses(updatedCourses);
+            dispatch(addString(currentUser.uid + " added course " + course)); // Log course addition
         } catch (error) {
             console.error('Error adding course:', error);
         }
@@ -443,6 +447,7 @@ function StudentSelection() {
         try {
             const updatedCourses = await removeCourse(hardcodedStudentId, course);
             setSelectedCourses(updatedCourses);
+            dispatch(addString(currentUser.uid + " dropped course " + course)); // Log course drop
         } catch (error) {
             console.error('Error dropping course:', error);
         }
@@ -450,6 +455,7 @@ function StudentSelection() {
 
     const handleWhatIfAnalysisClick = () => {
         setShowWhatIfAnalysis(true);
+        dispatch(addString(currentUser.uid + " initiated what-if analysis")); // Log what-if analysis
     };
 
     const handleBackButtonClick = () => {
@@ -490,8 +496,6 @@ function StudentSelection() {
     return (
         <div className="advisor">
             <h1 className="advisor-header">Student Selection</h1>
-            {/*<button className="advisor-button" onClick={studentCourse}>log student courses</button>*/}
-            {/* <button className="advisor-button" onClick={studentGpa}>log student gpa</button> */}
             <input
                 type="text"
                 className="advisor-search"

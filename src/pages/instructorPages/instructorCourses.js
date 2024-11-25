@@ -79,15 +79,19 @@
 //
 // export default InstructorSelection;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './instructor.css';
 import { GetInstructorData, GetInstructorCourses } from './instructorFunctions.js';
 import { useAuth } from '../../context/AuthContext.js';
+import { useDispatch } from 'react-redux';
+import { addString } from '../../redux/store';
 
 function InstructorSelection() {
     const { currentUser } = useAuth();
+    const dispatch = useDispatch();
     const [instructorData, setInstructorData] = useState(null);
     const [coursesData, setCoursesData] = useState(new Map());
+    const hasMounted = useRef(false);
 
     useEffect(() => {
         const fetchInstructor = async () => {
@@ -108,9 +112,13 @@ function InstructorSelection() {
             }
         };
 
-        fetchInstructor();
-        fetchCourses();
-    }, [currentUser]);
+        if (!hasMounted.current && currentUser) {
+            dispatch(addString(currentUser.uid + " viewed course list")); // Add log to Redux store
+            fetchInstructor();
+            fetchCourses();
+            hasMounted.current = true;
+        }
+    }, [currentUser, dispatch]);
 
     return (
         <div className="instructor">
