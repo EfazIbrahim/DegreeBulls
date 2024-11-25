@@ -66,8 +66,10 @@
 
 import React, { useState } from 'react';
 import './advisor.css';
-import { getStudentCourses, getCourses, addCourse, removeCourse } from './advisorFunctions.js';
+import { getStudentCourses, getCourses, addCourse, removeCourse, calculateGPA, GetCourses } from './advisorFunctions.js';
 import { useAuth } from '../../context/AuthContext.js';
+import {newCourse} from "../staffPages/staffFunctions";
+
 
 function StudentSelection() {
     const { currentUser } = useAuth();
@@ -81,6 +83,23 @@ function StudentSelection() {
 
     const hardcodedStudents = ['Ishraq Sadik', 'Farhan Shahriar', 'Efaz Ibrahim'];
     const hardcodedStudentId = '2ko5rQG2NHhput2ZS1SOPdyIUUw2'; // Hardcoded student ID
+
+    const studentCourse = async () => {
+        try {
+            const out = await GetCourses("2ko5rQG2NHhput2ZS1SOPdyIUUw2");
+            console.log(out);
+        } catch (error) {
+            console.error('Error fetching instructor:', error);
+        }
+    }
+    const studentGpa = async () => {
+        try {
+            const out = await calculateGPA("2ko5rQG2NHhput2ZS1SOPdyIUUw2");
+            console.log(out);
+        } catch (error) {
+            console.error('Error fetching instructor:', error);
+        }
+    }
 
     const handleInputChange = (event) => {
         const input = event.target.value;
@@ -143,6 +162,8 @@ function StudentSelection() {
     return (
         <div className="advisor">
             <h1 className="advisor-header">Student Selection</h1>
+            <button className="advisor-button" onClick={studentCourse}>log student courses</button>
+            <button className="advisor-button" onClick={studentGpa}>log student gpa</button>
             <input
                 type="text"
                 className="advisor-search"
