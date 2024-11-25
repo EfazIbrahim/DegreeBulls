@@ -16,7 +16,7 @@ function InstructorNav() {
             </nav>
             <Routes>
                 <Route path="/instructor" element={<InstructorStudents />} />
-                <Route path="/" element={<InstructorCourses />} />
+                <Route path="/" element={<InstructorStudents />} />
                 <Route path="courses" element={<InstructorCourses />} />
             </Routes>
         </div>
