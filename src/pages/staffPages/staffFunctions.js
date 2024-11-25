@@ -10,6 +10,7 @@ async function newCourse(currentUser, course, major) {
 
     const majorDoc = await getDoc(doc(db, 'course', major));
     if (majorDoc.data().hasOwnProperty(course)) {
+        alert('Course already exists');
         throw new Error('Course already exists');
     }
     if (majorDoc.exists() && majorDoc.data().Department === staffDepartment) {
@@ -20,6 +21,7 @@ async function newCourse(currentUser, course, major) {
             }
         });
     } else {
+        alert('You do not have permission to add a course to this major');
         throw new Error('You do not have permission to add a course to this major');
     }
 
@@ -34,7 +36,8 @@ async function deleteCourse(currentUser, course, major) {
     const staffDepartment = userDoc.data().Department;
 
     const courseDoc = await getDoc(doc(db, 'course', major));
-    if (!courseDoc.exists()) {
+    if (!courseDoc.data().hasOwnProperty(course)) {
+        alert('Course does not exist');
         throw new Error('Course does not exist');
     }
     if (courseDoc.exists() && courseDoc.data().Department === staffDepartment) {
@@ -42,6 +45,7 @@ async function deleteCourse(currentUser, course, major) {
             [course]: deleteField()
         });
     } else {
+        alert('You do not have permission to delete this course');
         throw new Error('You do not have permission to delete this course');
     }
 
@@ -68,6 +72,7 @@ async function modStudent(currentUser, studentID, changeName=false, changeMajor=
             });
         }
     } else {
+        alert('You do not have permission to modify this student');
         throw new Error('You do not have permission to modify this student');
     }
 
@@ -84,6 +89,7 @@ async function removeStudent(currentUser, studentID) {
     if (studentDoc.exists() && studentDoc.data().Department === staffDepartment) {
         await deleteDoc(doc(db, 'Student', studentID));
     } else {
+        alert('You do not have permission to remove this student');
         throw new Error('You do not have permission to remove this student');
     }
 }
@@ -97,6 +103,7 @@ async function removeInstructor(currentUser, instructorID) {
     if (instructorDoc.exists() && instructorDoc.data().Department === staffDepartment) {
         await deleteDoc(doc(db, 'Instructor', instructorID));
     } else {
+        alert('You do not have permission to remove this instructor');
         throw new Error('You do not have permission to remove this instructor');
     }
 }
@@ -111,20 +118,27 @@ async function assignInstructor(currentUser, instructorID, newcourse, major) {
         //update course list
         const courseDoc = await getDoc(doc(db, 'course', major));
 
-        if (courseDoc.exists() && courseDoc.data().hasOwnProperty(newcourse)) {
-            if (courseDoc.data()[newcourse].instructor === instructorID) {
+        if (courseDoc.exists()) {
+            if (!courseDoc.data().hasOwnProperty(newcourse)){
+                newCourse(currentUser, newcourse, major);
+            }
+            if (courseDoc.data()[newcourse] && courseDoc.data()[newcourse].instructor === instructorID) {
+                alert('Instructor already assigned to this course');
                 throw new Error('Instructor already assigned to this course');
             }
             await updateDoc(doc(db, 'course', major), {
-                [newcourse]: {
+                [newcourse] : {
+                    ...courseDoc.data()[newcourse],
                     instructor: instructorID
                 }
             });
+            console.log('Course updated');
         }
         //update instructor list
         const querySnapshot = await getDocs(collection(db, "Instructor", instructorID, "Courses"));
         querySnapshot.forEach((doc) => {
             if (doc.id === newcourse) {
+                alert('Instructor already assigned to this course');
                 throw new Error('Instructor already assigned to this course');
             }
         });
@@ -132,11 +146,13 @@ async function assignInstructor(currentUser, instructorID, newcourse, major) {
             Years: ["Fall 2024"],
             students: {}
         });
+        console.log('Instructor updated');
     } else {
+        alert('You do not have permission to assign this instructor');
         throw new Error('You do not have permission to assign this instructor');
     }
 
-    const updatedCourseDoc = await getDoc(doc(db, 'course', newcourse));
+    const updatedCourseDoc = await getDoc(doc(db, 'course', major));
     return updatedCourseDoc.data();
 }
 
@@ -153,11 +169,14 @@ async function unassignInstructor(currentUser, instructorID, course, major) {
             if (courseDoc.data()[course].instructor === instructorID) {
                 await updateDoc(doc(db, 'course', major), {
                     [course] : {
+                        ...courseDoc.data()[course],
                         instructor: ""
                     }
                 });
             }
+        console.log('Course updated');
         } else {
+            alert('Instructor is not assigned to this course');
             throw new Error('Instructor is not assigned to this course');
         }
         //update instructor list
@@ -167,7 +186,9 @@ async function unassignInstructor(currentUser, instructorID, course, major) {
                 await deleteDoc(doc.ref);
             }
         });
+        console.log('Instructor updated');
     } else {
+        alert('You do not have permission to unassign this instructor');
         throw new Error('You do not have permission to unassign this instructor');
     }
 
@@ -183,6 +204,7 @@ async function addMajor(currentUser, major, credithours) {
     //update Department with new major
     const DepartmentDoc = await getDoc(doc(db, 'Department', staffDepartment));
     if (DepartmentDoc.data().Majors && DepartmentDoc.data().Majors.hasOwnProperty(major)) {
+        alert('Major already exists');
         throw new Error('Major already exists');
     }
     await updateDoc(doc(db, 'Department', staffDepartment), {
@@ -205,6 +227,7 @@ async function removeMajor(currentUser, major) {
 
     //remove major from department
     if (userDoc.data().Department !== staffDepartment) {
+        alert('You do not have permission to remove this major');
         throw new Error('You do not have permission to remove this major');
     }
     const DepartmentDoc = await getDoc(doc(db, 'Department', staffDepartment));
@@ -213,6 +236,7 @@ async function removeMajor(currentUser, major) {
             [`Majors.${major}`]: deleteField()
         });
     } else {
+        alert('Major does not exist');
         throw new Error('Major does not exist');
     }
 
@@ -221,6 +245,7 @@ async function removeMajor(currentUser, major) {
     if (courseDoc.exists() && courseDoc.data().Department === staffDepartment) {
         await deleteDoc(doc(db, 'course', major));
     } else {
+        alert('You do not have permission to remove this major');
         throw new Error('You do not have permission to remove this major');
     }
 

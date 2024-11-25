@@ -6,6 +6,7 @@ import { collection, doc, getDoc, getDocs, updateDoc, arrayUnion, arrayRemove, d
 //use ID as argument to next functions
 async function selectStudent(currentUser) {
     if (!currentUser) {
+        alert('User not authenticated');
         throw new Error('User not authenticated');
     }
 
@@ -67,12 +68,15 @@ async function getStudentCourses(id){
 //return new student course list after adding a course
 async function addCourse(id, course) {
     if ((await getStudentCourses(id)).length >= 6) {
+        alert('Student is already enrolled in 6 courses');
         throw new Error('Student is already enrolled in 6 courses');
     }
     else if ((await getStudentCourses(id)).includes(course)) {
+        alert('Student is already enrolled in this course');
         throw new Error('Student is already enrolled in this course');
     }
     else if (!(await getCourses(id)).includes(course)) {
+        alert('Course is not available to student');
         throw new Error('Course is not available to student');
     }
     const grades = ['A', 'B', 'C', 'D'];
@@ -124,6 +128,7 @@ async function addCourse(id, course) {
 //return new student course list after removing a course
 async function removeCourse(id, course) {
     if (!(await getStudentCourses(id)).includes(course)) {
+        alert('Student is not enrolled in this course');
         throw new Error('Student is not enrolled in this course');
     } else {
         //update student's course list
