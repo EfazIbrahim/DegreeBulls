@@ -27,3 +27,18 @@
     width: 100%;
     padding-left: 20px;
 }
+
+.admin-label {
+    font-size: 20px;
+    width: 100%;
+    padding-left: 400px;
+    align-self: center;
+}
+
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
