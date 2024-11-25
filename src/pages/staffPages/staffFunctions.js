@@ -140,7 +140,7 @@ async function assignInstructor(currentUser, instructorID, newcourse, major) {
     return updatedCourseDoc.data();
 }
 
-async function unassignInstructor(currentUser, instructorID, course) {
+async function unassignInstructor(currentUser, instructorID, course, major) {
     const userID = currentUser.uid;
     const userDoc = await getDoc(doc(db, 'Staff', userID));
     const staffDepartment = userDoc.data().Department;
@@ -148,11 +148,15 @@ async function unassignInstructor(currentUser, instructorID, course) {
     const instructorDoc = await getDoc(doc(db, 'Instructor', instructorID));
     if (instructorDoc.exists() && instructorDoc.data().Department === staffDepartment) {
         //update course list
-        const courseDoc = await getDoc(doc(db, 'course', course));
-        if (courseDoc.exists() && courseDoc.data().instructor === instructorID) {
-            await updateDoc(doc(db, 'course', course), {
-                instructor: ""
-            });
+        const courseDoc = await getDoc(doc(db, 'course', major));
+        if (courseDoc.exists() && courseDoc.data().hasOwnProperty(course)) {
+            if (courseDoc.data()[course].instructor === instructorID) {
+                await updateDoc(doc(db, 'course', major), {
+                    [course] : {
+                        instructor: ""
+                    }
+                });
+            }
         } else {
             throw new Error('Instructor is not assigned to this course');
         }

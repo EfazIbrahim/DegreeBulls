@@ -32,7 +32,7 @@ function StaffHome() {
     }
     const unassign_ins = async () => {
         try {
-            const out = await unassignInstructor(currentUser, "M49HCtwZpqVGxrkEYakcSlyeUaH2", "COT 4400");
+            const out = await unassignInstructor(currentUser, "M49HCtwZpqVGxrkEYakcSlyeUaH2", "CAI 4841", "CS");
             console.log(out);
         } catch (error) {
             console.error('Error fetching instructor:', error);
@@ -40,7 +40,7 @@ function StaffHome() {
     }
     const assign_ins = async () => {
         try {
-            const out = await assignInstructor(currentUser, "M49HCtwZpqVGxrkEYakcSlyeUaH2", "CAI 4841");
+            const out = await assignInstructor(currentUser, "M49HCtwZpqVGxrkEYakcSlyeUaH2", "CAI 4841", "CS");
             console.log(out);
         } catch (error) {
             console.error('Error fetching instructor:', error);
