@@ -160,6 +160,8 @@ import React, { useState, useEffect } from 'react';
 import './student.css';
 import { calculateGPA } from './studentFunctions.js';
 import { useAuth } from "../../context/AuthContext";
+import { useDispatch } from 'react-redux';
+import { addString } from '../../redux/store';
 
 function Gpa() {
     const { currentUser } = useAuth();
@@ -169,6 +171,7 @@ function Gpa() {
     const [selectedCourses, setSelectedCourses] = useState([]);
     const [grades, setGrades] = useState({});
     const [whatIfGpa, setWhatIfGpa] = useState(null);
+    const dispatch = useDispatch();
     const suggestions = ['CEN 4020', 'CIS 2030', 'COP 2510', 'CDA 3510'];
     const gradeOptions = ['A', 'B', 'C', 'D', 'F'];
 
@@ -211,6 +214,7 @@ function Gpa() {
         }, 0);
         const newGpa = ((5 * gpa) + totalGradePoints) / (selectedCourses.length + 5);
         setWhatIfGpa(newGpa.toFixed(2));
+        dispatch(addString(currentUser.uid + " did a what-if analysis")); // Add log to Redux store
     };
 
     const filteredSuggestions = suggestions.filter(suggestion =>

@@ -10,9 +10,10 @@ function AdminNav() {
             <nav className="adminNav-navbar">
                 <img className="adminNav-logo" src={logo} alt="Degree Bulls Logo"/>
                 <Link className="adminNav-links" to="/admin">Logs</Link>
+                <Link className="adminNav-links" to="/">Log Out</Link>
             </nav>
             <Routes>
-                <Route path="/admin" element={<adminNav />} />
+                <Route path="/admin" element={<Logs />} />
                 <Route path="/" element={<Logs />} />
             </Routes>
         </div>

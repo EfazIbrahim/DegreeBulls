@@ -42,15 +42,18 @@
 // export default StudentCourses;
 
 
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './student.css';
 import { GetCourses } from './studentFunctions.js';
 import { useAuth } from '../../context/AuthContext.js';
+import { useDispatch } from 'react-redux';
+import { addString } from '../../redux/store';
 
 function StudentCourses() {
     const { currentUser } = useAuth();
     const [courses, setCourses] = useState([]);
+    const dispatch = useDispatch();
+    const hasMounted = useRef(false);
 
     const getCourse = async () => {
         try {
@@ -63,8 +66,12 @@ function StudentCourses() {
     };
 
     useEffect(() => {
-        getCourse();
-    }, []);
+        if (!hasMounted.current && currentUser) {
+            dispatch(addString(currentUser.uid + " viewed course list")); // Add log to Redux store
+            getCourse();
+            hasMounted.current = true;
+        }
+    }, [currentUser, dispatch]);
 
     return (
         <div className="student">

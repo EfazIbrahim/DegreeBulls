@@ -1,17 +1,26 @@
-import React, {useState} from 'react';
+// degreebulls/src/pages/testingAuth.js
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import './auth.css';
 import { auth, db } from '../firebase/firebase.js';
 import { doc, getDoc } from "firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import logo from '../assets/logo.png';
+import { addString } from '../redux/store';
 
 function Auth() {
     const navigate = useNavigate();
-    
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const dispatch = useDispatch();
+    const actions = useSelector((state) => state.actions);
+
+    const [email, setEmailState] = useState('');
+    const [password, setPassword] = useState('');
     const [role, setRole] = useState('student'); // Default role is 'student'
+
+    useEffect(() => {
+        console.log(actions); // Log the Redux store state
+    }, [actions]);
 
     const capitalize = (role) => {
         switch(role) {
@@ -22,7 +31,7 @@ function Auth() {
             case 'staff':
                 return "Staff";
             case 'instructor':
-                return "Instructor";	
+                return "Instructor";
             case 'admin':
                 return "admin";
             default:
@@ -39,6 +48,7 @@ function Auth() {
                 try {
                     const user = await getDoc(userRef);
                     if (user.exists()) {
+                        dispatch(addString("User " + email + " logged in")); // Store email in Redux
                         navigate(`/${role}`);
                     } else {
                         alert("User does not exist in the database");
@@ -61,22 +71,22 @@ function Auth() {
                 <label className="auth-label">Email:   </label>
                 <input
                     className="auth-searchbar"
-                    type="email" 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
-                    placeholder="Enter your email" 
-                    required 
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmailState(e.target.value)}
+                    placeholder="Enter your email"
+                    required
                 />
             </div>
             <div className="auth-option">
                 <label className="auth-label">Password:   </label>
                 <input
                     className="auth-searchbar"
-                    type="password" 
-                    value={password} 
-                    onChange={(e) => setPassword(e.target.value)} 
-                    placeholder="Enter your password" 
-                    required 
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    required
                 />
             </div>
             <div className="auth-option">

@@ -21,3 +21,9 @@
     text-align: center;
     width: 100%;
 }
+
+.admin-log {
+    font-size: 30px;
+    width: 100%;
+    padding-left: 20px;
+}

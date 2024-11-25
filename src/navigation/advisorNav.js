@@ -12,6 +12,7 @@ function AdvisorNav() {
                 <img className="advisorNav-logo" src={logo} alt="Degree Bulls Logo"/>
                 <Link className="advisorNav-links" to="/advisor">Instructor List</Link>
                 <Link className="advisorNav-links" to="student-selection">Student Selection</Link>
+                <Link className="advisorNav-links" to="/">Log Out</Link>
             </nav>
             <Routes>
                 <Route path="student-selection" element={<Selection />} />
